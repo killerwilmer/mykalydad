@@ -11,9 +11,9 @@
  * @author Admin
  */
 class Tipocampo extends ActiveRecord {
-    public function initialize(){
+    /*public function initialize(){
         $this->has_many('campopregunta');
-    }
+    }*/
 }
 
 ?>

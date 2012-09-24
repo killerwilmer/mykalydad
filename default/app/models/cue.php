@@ -6,14 +6,12 @@
  */
 
 /**
- * Description of pregunta
+ * Description of cue
  *
  * @author Admin
  */
-class Pregunta extends ActiveRecord {
-    /*public function initialize(){
-        $this->has_many('campopregunta');
-    }*/
+class cue extends ActiveRecord {
+    //put your code here
 }
 
 ?>

@@ -11,10 +11,10 @@
  * @author Admin
  */
 class Campopregunta extends ActiveRecord {
-    public function initialize(){
+    /*public function initialize(){
         $this->belongs_to('tipocampo');
         $this->belongs_to('pregunta');
-    }
+    }*/
 }
 
 ?>

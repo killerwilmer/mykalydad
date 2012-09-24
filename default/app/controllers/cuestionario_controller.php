@@ -6,14 +6,12 @@
  */
 
 /**
- * Description of pregunta
+ * Description of cuestionario_controller
  *
  * @author Admin
  */
-class Pregunta extends ActiveRecord {
-    /*public function initialize(){
-        $this->has_many('campopregunta');
-    }*/
+class CuestionarioController extends ScaffoldController  {
+    public $model = 'cue';
 }
 
 ?>

@@ -6,14 +6,12 @@
  */
 
 /**
- * Description of pregunta
+ * Description of periodo_controller
  *
  * @author Admin
  */
-class Pregunta extends ActiveRecord {
-    /*public function initialize(){
-        $this->has_many('campopregunta');
-    }*/
+class PeriodoController extends ScaffoldController {
+    public $model = 'per';
 }
 
 ?>

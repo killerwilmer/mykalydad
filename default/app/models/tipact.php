@@ -6,14 +6,12 @@
  */
 
 /**
- * Description of pregunta
+ * Description of tipact
  *
  * @author Admin
  */
-class Pregunta extends ActiveRecord {
-    /*public function initialize(){
-        $this->has_many('campopregunta');
-    }*/
+class tipact extends ActiveRecord {
+    //put your code here
 }
 
 ?>

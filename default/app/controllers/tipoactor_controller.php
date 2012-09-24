@@ -6,14 +6,12 @@
  */
 
 /**
- * Description of pregunta
+ * Description of tipoactor_controller
  *
  * @author Admin
  */
-class Pregunta extends ActiveRecord {
-    /*public function initialize(){
-        $this->has_many('campopregunta');
-    }*/
+class TipoactorController extends ScaffoldController {
+    public $model = 'tipact';
 }
 
 ?>
