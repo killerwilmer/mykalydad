@@ -1,0 +1,10 @@
+<h2>Registro de Preguntas</h2>
+<?echo Form::open()?>
+<?echo Form::label('Pregunta: ','pregunta');?>
+<?echo Form::textarea('pregunta');?>
+<br>
+<?echo Form::text('prueba.nombre')?>
+<?echo Form::text('prueba.ciudad')?>   
+<?echo Form::submit('guardar')?>
+<?echo Form::close()?>
+<?echo View::content()?>
