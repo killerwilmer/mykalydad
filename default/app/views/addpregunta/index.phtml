@@ -1,10 +1,39 @@
-<h2>Registro de Preguntas</h2>
+<h2>Registro de Preguntas.</h2>
 <?echo Form::open()?>
+
+<?echo Form::label('Cuestionario', 'cuestionario');?>
+<?echo Form::dbSelect('pregunta.cue_id', 'nombre');?><!-- modelo . campo relacionado -->
+
 <?echo Form::label('Pregunta: ','pregunta');?>
-<?echo Form::textarea('pregunta');?>
+<?echo Form::textarea('pregunta.pregunta');?>
+
+<?echo Form::label('Titulo', 'titulo')?>
+<?echo Form::text('pregunta.titulo')?>
+
+<?echo Form::label('Unica', 'unica')?>
+Si: <?echo Form::radio("pregunta.unica", '1', NULL, TRUE);?>
+No: <?echo Form::radio("pregunta.unica", '0');?>
+
+<h2>Campos de las Pregunta.</h2>
+
+<?echo Form::label('Campo', 'nombre')?>
+<?echo Form::text('campopregunta.nombrecampo');?>
+
+<?echo Form::label('Tipo', 'tipo');?>
+<?echo Form::dbSelect('campopregunta.tipocampo_id', 'nombre');?>
+<a href="#" id="add">Add</a>
 <br>
-<?echo Form::text('prueba.nombre')?>
-<?echo Form::text('prueba.ciudad')?>   
+
 <?echo Form::submit('guardar')?>
 <?echo Form::close()?>
 <?echo View::content()?>
+
+<div id="capa_saludo"></div>
+<?php
+    echo Ajax::link('addpregunta', 'Mostrar Saludo', 'capa_saludo');
+?>
+
+<?php echo Html::link('#', 'Add Vehicle', array('rel'=>'#form-vehicle','class'=>'jsShow')); ?>
+<div style="display: none;" id="form-vehicle">
+Div con contenido que esta oculto mediante css usando display: none; y que se va a mostrar cuando hagan click en el enlace.
+</div>
