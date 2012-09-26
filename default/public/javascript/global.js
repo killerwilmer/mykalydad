@@ -8,23 +8,18 @@ $(function(){
         $(".form_lista").submit();
     })
     
-    $("a.jsShow").on('click' , function(event) {
-        event.preventDefault();
-        $(this.rel).show();
-    });
- 
-    $("a.jsHide").on('click', function(event) {
-        event.preventDefault();
-        $(this.rel).hide();
-    });
- 
-    $("a.jsToggle").on('click', function(event) {
-        event.preventDefault();
-        $(this.rel).toggle();
-    });
- 
-    $("a.jsRemote").on('click', function(event) {
-        event.preventDefault();
-        $(this.rel).load(this.href)
-    });
+    var cnt = 1;
+    $("#addMore").click(function () {
+        cnt++;
+        $('<?PHP echo("string"); ?>');
+        $('<div id="micampo">'+
+                    "<? echo Form::label('Campo', 'nombre') ?>"+
+        '<? echo Form::text("campopregunta.nombrecampo"); ?>'+
+
+        '<? echo Form::label("Tipo", "tipo"); ?>'+
+        '<? echo Form::dbSelect("campopregunta.tipocampo_id", "nombre"); ?>'+
+            '<label for="email'+cnt+'">Email '+cnt+':</label>'+
+            '<input type="text" id="email'+cnt+'" name="email'+cnt+'" />'+
+            '<button onclick="$(this).parent().remove();">Quitar</button>'+'</div><p>__________________________________________________________________</p>').appendTo('#miscampos');
+    })
 });
