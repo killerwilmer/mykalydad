@@ -11,12 +11,12 @@ $(function(){
     var cnt = 1;
     $("#addMore").click(function () {
         cnt++;
-        $('<?PHP echo("string"); ?>');
+        alert('<?PHP echo("string"); ?>');
         $('<div id="micampo">'+
-                    "<? echo Form::label('Campo', 'nombre') ?>"+
-        '<? echo Form::text("campopregunta.nombrecampo"); ?>'+
+                    "<? echo Form::label('Campo', 'nombre');?>"+
+        '<? echo Form::text("campopregunta.nombrecampo");?>'+
 
-        '<? echo Form::label("Tipo", "tipo"); ?>'+
+        '<? echo Form::label("Tipo", "tipo");?>'+
         '<? echo Form::dbSelect("campopregunta.tipocampo_id", "nombre"); ?>'+
             '<label for="email'+cnt+'">Email '+cnt+':</label>'+
             '<input type="text" id="email'+cnt+'" name="email'+cnt+'" />'+
