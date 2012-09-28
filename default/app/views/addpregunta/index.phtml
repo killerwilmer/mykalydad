@@ -1,6 +1,7 @@
 <h2>Registro de Preguntas.</h2>
 <? echo Form::open() ?>
 
+
 <? echo Form::label('Cuestionario', 'cuestionario'); ?>
 <? echo Form::dbSelect('pregunta.cue_id', 'nombre'); ?><!-- modelo . campo relacionado -->
 
@@ -33,6 +34,7 @@ No: <? echo Form::radio("pregunta.unica", '0'); ?>
     </div>
 </div>
 <br>
+<div id="contador"></div>
 
 <? echo Form::close() ?>
 <? echo View::content() ?>

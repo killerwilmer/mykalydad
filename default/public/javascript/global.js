@@ -12,6 +12,7 @@ $(function(){
  
     $("#addButton").click(function () {
         
+        document.getElementById('contador').innerHTML='<div><input id="numerocampos" name="numerocampos" type="hidden" value="'+counter+'" /></div>';
  
         if(counter>10){
             alert("Only 10 textboxes allow");
