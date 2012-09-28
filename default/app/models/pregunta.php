@@ -11,9 +11,10 @@
  * @author Admin
  */
 class Pregunta extends ActiveRecord {
-    /*public function initialize(){
-        $this->has_many('campopregunta');
-    }*/
+    public function initialize(){
+        //$this->has_many('campopregunta');
+        $this->validates_presence_of('pregunta', 'message: Debe escribir la <b>Pregunta</b>;');
+    }
 }
 
 ?>
