@@ -8,18 +8,54 @@ $(function(){
         $(".form_lista").submit();
     })
     
-    var cnt = 1;
-    $("#addMore").click(function () {
-        cnt++;
-        alert('<?PHP echo("string"); ?>');
-        $('<div id="micampo">'+
-                    "<? echo Form::label('Campo', 'nombre');?>"+
-        '<? echo Form::text("campopregunta.nombrecampo");?>'+
-
-        '<? echo Form::label("Tipo", "tipo");?>'+
-        '<? echo Form::dbSelect("campopregunta.tipocampo_id", "nombre"); ?>'+
-            '<label for="email'+cnt+'">Email '+cnt+':</label>'+
-            '<input type="text" id="email'+cnt+'" name="email'+cnt+'" />'+
-            '<button onclick="$(this).parent().remove();">Quitar</button>'+'</div><p>__________________________________________________________________</p>').appendTo('#miscampos');
+    var counter = 2;
+ 
+    $("#addButton").click(function () {
+        
+ 
+        if(counter>10){
+            alert("Only 10 textboxes allow");
+            return false;
+        }   
+        
+        $('<div id="TextBoxDiv'+counter+'">'+
+            '<label for="nombre">Campo'+counter+'</label>'+
+            '<input id="campo'+counter+'" type="text" value="" "campo'+counter+'">'+
+            '<label for="tipo">Tipo'+counter+'</label>'+
+            '<select id="tipocampo'+counter+'" name="tipocampo'+counter+'">'+
+            '<option value="1">int</option>'+
+            '<option value="2">text</option>'+
+            '</select>'+
+            '<p>__________________________________________________________________</p>'+
+            '</div>').appendTo('#TextBoxesGroup'); 
+ 
+        counter++;
+        
     })
+ 
+    $("#removeButton").click(function () {
+        if(counter==1){
+            alert("No hay mas campos para eliminar");
+            return false;
+        }   
+ 
+        counter--;
+ 
+        $("#TextBoxDiv" + counter).remove();
+ 
+    })
+ 
+    $("#getButtonValue").click(function () {
+        if(counter >1){
+            var msg = '';
+            for(i=1; i<counter; i++){
+                msg += "\n Campo #" + i + " : " + $('#campo' + i).val() + "  Tipo Campo: " + $('#tipocampo' + i).val();
+            }
+            alert(msg);
+        }
+        else{
+            alert('No hay campos para mostrar');
+        }
+    })
+     
 });

@@ -15,15 +15,20 @@ Si: <? echo Form::radio("pregunta.unica", '1', NULL, TRUE); ?>
 No: <? echo Form::radio("pregunta.unica", '0'); ?>
 
 <h2>Campos de las Pregunta.</h2>
-<a href="#" id="addMore">Otro campo</a> <? echo Form::submit('Enviar') ?>
-<div id="miscampos">
-    <div id="micampo">
+<a href="#" id="addButton">Agregar Campo</a>
+<a href="#" id="removeButton">Eliminar Campo</a>
+<a href="#" id="getButtonValue">Dar Campos</a>
+<? echo Form::submit('Enviar') ?>
+<div id="TextBoxesGroup">
+    <div id="TextBoxDiv1">
         <p>__________________________________________________________________</p>
-        <? echo Form::label('Campo', 'nombre') ?>
-        <? echo Form::text('campopregunta.nombrecampo'); ?>
-
-        <? echo Form::label('Tipo', 'tipo'); ?>
-        <? echo Form::dbSelect('campopregunta.tipocampo_id', 'nombre'); ?>
+        <label for="nombre">Campo1</label>
+        <input id="campo1" type="text" name="campo1" value="">
+        <label for="tipo">Tipo1</label>
+        <select id="tipocampo1" name="tipocampo1">
+            <option value="1">int</option>
+            <option value="2">text</option>
+        </select>
         <p>__________________________________________________________________</p>
     </div>
 </div>
