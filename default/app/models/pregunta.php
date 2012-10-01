@@ -19,15 +19,15 @@ class Pregunta extends ActiveRecord {
     }
 
     public function guardar($pregunta) {
-        
+
         $this->begin(); //iniciamos la trasaccion
 
         if (!$this->save($pregunta)) {
             $this->rollback();
             return FALSE;
         }
-        
-        
+        $this->commit();
+        return TRUE;
     }
 
 }
