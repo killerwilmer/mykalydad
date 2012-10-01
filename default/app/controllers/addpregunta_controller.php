@@ -29,7 +29,7 @@ class AddpreguntaController extends AppController {
             Load::model('pregunta');
             $obj = new Pregunta(Input::post('pregunta'));
             if ($obj->guardar(Input::post('pregunta'))) {
-                Flash::valid('El Usuario Ha Sido Agregado Exitosamente...!!!');
+                Flash::valid('La Pregunta Ha Sido Agregado Exitosamente...!!!');
             } else {
                 Flash::warning('No se Pudieron Guardar los Datos...!!!');
             }
