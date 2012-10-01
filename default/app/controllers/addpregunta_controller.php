@@ -18,9 +18,6 @@ class AddpreguntaController extends AppController {
             $numerocampos = Input::request('numerocampos');
             if ($numerocampos == null) {
                 $numerocampos = 1;
-                Flash::info('este es el flash:' . $numerocampos);
-            } else {
-                Flash::info('este es el flash:' . $numerocampos);
             }
 
             for ($index = 1; $index <= $numerocampos; $index++) {

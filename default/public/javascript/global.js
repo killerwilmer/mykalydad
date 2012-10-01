@@ -21,7 +21,7 @@ $(function(){
         
         $('<div id="TextBoxDiv'+counter+'">'+
             '<label for="nombre">Campo'+counter+'</label>'+
-            '<input id="campo'+counter+'" type="text" value="" "campo'+counter+'">'+
+            '<input id="campo'+counter+'" type="text" name="campo'+counter+'">'+
             '<label for="tipo">Tipo'+counter+'</label>'+
             '<select id="tipocampo'+counter+'" name="tipocampo'+counter+'">'+
             '<option value="1">int</option>'+
