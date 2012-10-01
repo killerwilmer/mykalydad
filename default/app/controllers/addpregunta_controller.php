@@ -24,7 +24,9 @@ class AddpreguntaController extends AppController {
             }
 
             for ($index = 1; $index <= $numerocampos; $index++) {
-                Flash::notice('numero: ' . $index);
+                $campo = Input::post('campo'.$index);
+                $tipocampo = Input::post('tipocampo'.$index);
+                Flash::notice('campo: ' . $campo . ' tipocampo: '.$tipocampo);
             }
 
             Load::model('pregunta');

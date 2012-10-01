@@ -18,11 +18,11 @@ class Campopregunta extends ActiveRecord {
 
     public function registrar() {
         try {
-            $this->begin();
-            $this->commit();
+            $this->begin();//iniciamos una transaccion
+            $this->commit();//enviamos la transaccion
             
         } catch (KumbiaException $e) {
-            $this->rollback();
+            $this->rollback();//cancelamos la transaccion
             View::excepcion($e);
         }
     }
