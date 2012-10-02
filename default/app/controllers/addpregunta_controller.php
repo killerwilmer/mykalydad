@@ -21,49 +21,43 @@ class AddpreguntaController extends AppController {
                 $numerocampos = 1;
             }
 
-
             Load::models('pregunta', 'campopregunta');
-            $obj = new Pregunta(Input::post('pregunta'));
-            if ($obj->guardar(Input::post('pregunta'))) {
-                Flash::valid('La Pregunta Ha Sido Agregado Exitosamente...!!!');
+            $miPregunta = new Pregunta(Input::post('pregunta'));
+            if ($miPregunta->guardar(Input::post('pregunta'))) {
+                $ultimoid = $miPregunta->id;
+
+                $miCampoPregunta = new Campopregunta();
+
+                try {
+
+                    $miCampoPregunta->begin();
+
+                    for ($index = 1; $index <= $numerocampos; $index++) {
+
+                        $campo = Input::post('campo' . $index);
+                        $tipocampo = Input::post('tipocampo' . $index);
+
+                        //Flash::notice('campo: ' . $campo . ' tipocampo: ' . $tipocampo);
+
+                        $miCampoPregunta->nombrecampo = $campo;
+                        $miCampoPregunta->pregunta_id = 1; //recibir arriba
+                        $miCampoPregunta->tipocampo_id = $tipocampo;
+                        if (!$miCampoPregunta->save()) {
+                            $miCampoPregunta->rollback();
+                            Flash::notice("No se pudo grabar");
+                        } else {
+                            $miCampoPregunta = new Campopregunta();
+                        }
+                    }
+                    $miCampoPregunta->commit();
+                    Flash::valid('Campos guardados Exitosamente...!!!' . $ultimoid);
+                } catch (Exception $e) {
+                    $miCampoPregunta->rollback();
+                    View::excepcion($e);
+                }
             } else {
                 Flash::warning('No se Pudieron Guardar los Datos...!!!');
             }
-
-
-            $ob = new Campopregunta();
-
-            try {
-
-                $ob->begin();
-
-                for ($index = 1; $index <= $numerocampos; $index++) {
-
-                    $campo = Input::post('campo' . $index);
-                    $tipocampo = Input::post('tipocampo' . $index);
-
-                    Flash::notice('campo: ' . $campo . ' tipocampo: ' . $tipocampo);
-
-                    $ob->nombrecampo = $campo;
-                    $ob->pregunta_id = 1; //recibir arriba
-                    $ob->tipocampo_id = $tipocampo;
-                    if (!$ob->save()) {
-                        $ob->rollback();
-                        Flash::notice("No se pudo grabar");
-                    } else {
-                        $ob = new Campopregunta();
-                    }
-                }
-                $ob->commit();
-            } catch (Exception $e) {
-                $ob->sql("ROLLBACK");
-            }
-            /* Antes
-              if ($obj->save()) {
-              Flash::notice('Pregunta registra satisfactoriamente');
-              } else {
-              Flash::error('Error al registar la pregunta.');
-              } */
         }
     }
 
