@@ -24,7 +24,7 @@ class AddpreguntaController extends AppController {
             Load::models('pregunta', 'campopregunta');
             $miPregunta = new Pregunta(Input::post('pregunta'));
             if ($miPregunta->guardar(Input::post('pregunta'))) {
-                $ultimoid = $miPregunta->id;
+                $preguntaId = $miPregunta->id;
 
                 $miCampoPregunta = new Campopregunta();
 
@@ -40,7 +40,7 @@ class AddpreguntaController extends AppController {
                         //Flash::notice('campo: ' . $campo . ' tipocampo: ' . $tipocampo);
 
                         $miCampoPregunta->nombrecampo = $campo;
-                        $miCampoPregunta->pregunta_id = 1; //recibir arriba
+                        $miCampoPregunta->pregunta_id = $preguntaId; //recibir arriba
                         $miCampoPregunta->tipocampo_id = $tipocampo;
                         if (!$miCampoPregunta->save()) {
                             $miCampoPregunta->rollback();
@@ -50,7 +50,7 @@ class AddpreguntaController extends AppController {
                         }
                     }
                     $miCampoPregunta->commit();
-                    Flash::valid('Campos guardados Exitosamente...!!!' . $ultimoid);
+                    Flash::valid('Campos guardados Exitosamente...!!!' . $preguntaId);
                 } catch (Exception $e) {
                     $miCampoPregunta->rollback();
                     View::excepcion($e);
