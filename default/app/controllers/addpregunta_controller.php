@@ -53,7 +53,7 @@ class AddpreguntaController extends AppController {
                     Flash::valid('Campos guardados Exitosamente...!!!' . $preguntaId);
                 } catch (Exception $e) {
                     $miCampoPregunta->rollback();
-                    View::excepcion($e);
+                    Flash::valid('Error Fatal...!!!' . $e);
                 }
             } else {
                 Flash::warning('No se Pudieron Guardar los Datos...!!!');
