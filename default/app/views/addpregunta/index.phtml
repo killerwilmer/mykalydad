@@ -6,7 +6,7 @@
 <? echo Form::dbSelect('pregunta.cue_id', 'nombre'); ?><!-- modelo . campo relacionado -->
 
 <? echo Form::label('Pregunta: ', 'pregunta'); ?>
-<? echo Form::textarea('pregunta.pregunta'); ?>
+<? echo Form::textarea('pregunta.pregunta', ''.' title="Se necesita una Pregunta" required'); ?>
 
 <? echo Form::label('Titulo', 'titulo') ?>
 <? echo Form::text('pregunta.titulo') ?>
