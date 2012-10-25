@@ -1,0 +1,8 @@
+<div>
+    <h3>Diagnostico Previo</h3>
+    <?echo Form::open()?>
+    <?echo Form::label("Factor:","factor")?>
+    <?echo Form::dbSelect('fac.fac_id', 'nombre'); ?><!-- modelo . campo relacionado -->
+    <?echo Form::submit("Consultar","class='btn btn-primary'")?>
+    <?echo Form::close()?>
+</div>
