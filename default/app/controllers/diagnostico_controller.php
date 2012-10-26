@@ -3,6 +3,7 @@
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
+ * El tiempo pone a cada uno en su lugar, pero si haces SEO un poco mas arriva.
  */
 
 /**
@@ -14,13 +15,15 @@ Load::model('car');
 
 class DiagnosticoController extends ApplicationController {
 
-    function index($fac_fac_id = 1) {
+    function index($fac_id = 1) {
         $car = new Car();
-        $this->lista = $car->find("conditions: fac_id=$fac_fac_id order by id asc");
+        $this->lista = $car->find("conditions: fac_id=$fac_id order by id asc");
 
-        if (Input::hasPost("fac_fac_id")) {
-            $this->redirect("diagnostico/index/" . Input::post("fac_fac_id"));
-            Session::set("fac_fac_id", Input::post("fac_fac_id"));
+        if (Input::hasPost("fac")) {    //verificamos si la variable fac viene cambiada desde la vista.
+            $factor = Input::post('fac');   //recibimos la varible fac en factor
+            $idfactor = $factor["fac_id"];  //como es un array sacamos de ese array el fac_id que viene en fac
+            $this->redirect("diagnostico/index/" . $idfactor);
+            Session::set("fac", $idfactor);
         }
     }
 }
