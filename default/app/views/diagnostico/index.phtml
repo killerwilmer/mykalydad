@@ -6,3 +6,8 @@
     <?echo Form::submit("Consultar","class='btn btn-primary'")?>
     <?echo Form::close()?>
 </div>
+<ul>
+<?php foreach ($lista as $key => $value) { ?>
+        <li><?php echo $value->nombre ?></li>
+<?php } ?>
+</ul>
