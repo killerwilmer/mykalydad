@@ -20,7 +20,7 @@ class DiagnosticoController extends ApplicationController {
         $this->lista = $car->find("conditions: fac_id=$fac_id order by id asc");
 
         if (Input::hasPost("fac")) {    //verificamos si la variable fac viene cambiada desde la vista.
-            $factor = Input::post('fac');   //recibimos la varible fac en factor
+            $factor = Input::post("fac");   //recibimos la varible fac en factor
             $idfactor = $factor["fac_id"];  //como es un array sacamos de ese array el fac_id que viene en fac
             $this->redirect("diagnostico/index/" . $idfactor);
             Session::set("fac", $idfactor);
