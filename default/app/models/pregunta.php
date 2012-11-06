@@ -29,7 +29,6 @@ class Pregunta extends ActiveRecord {
         $this->commit();
         return TRUE;
     }
-
 }
 
 ?>
